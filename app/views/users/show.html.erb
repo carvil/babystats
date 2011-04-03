@@ -2,7 +2,11 @@
 
 <p>
   <b>Name:</b>
-  <%= @user.name %>
+  <%= @user.name %> <br/>
+  <b>Email:</b>
+  <%= @user.email %> <br/>
+  <%= show_non_blank_field "Country", @user.country %>
+  <%= show_non_blank_field "City", @user.city %>
 </p>
 
 

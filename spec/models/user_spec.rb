@@ -11,18 +11,32 @@ describe User do
     @user.valid?.should be_true
   end
 
-  [:name, :email, :username, :password].each do |attr|
+  [:name, :email, :username, :password, :country, :city].each do |attr|
     it "should fail when #{attr.to_s} is not given" do
       user = User.new(valid_user_attributes.reject{|key,value| key == attr})
       user.valid?.should be_false
     end
   end
 
-  [:country, :city].each do |attr|
-    it "should not fail when #{attr.to_s} is not given" do
-      user = User.new(valid_user_attributes.reject{|key,value| key == attr})
-      user.valid?.should be_true
+  [:name, :email, :username, :password].each do |attr|
+    it "should fail when #{attr.to_s} is null" do
+      user = User.new(valid_user_attributes({ attr => nil}))
+      user.valid?.should be_false
     end
+  end
+
+  it "should save the user with minimalist information" do
+    user = User.new(valid_user_attributes({:country => nil, :city => nil}))
+    user.save
+  end
+
+  it "should save the user with valid input" do
+    user = User.new(valid_user_attributes({:username => 'adrianaTest'}))
+    user.save
+    user.valid?.should be_true
+    user2 = User.new(valid_user_attributes({:username => 'adrianaTest'}))
+    user2.save
+    user2.valid?.should be_false
   end
 
   def valid_user_attributes(opts = {})
@@ -30,9 +44,9 @@ describe User do
       :name => @user.name,
       :email => @user.email,
       :username => @user.username,
-      #:password => @user.password,
-      #:country => @user.country,
-      #:city => @user.city
+      :password => @user.password,
+      :country => @user.country,
+      :city => @user.city
     }.merge(opts)
     return valid_attributes
   end
