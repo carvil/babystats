@@ -1,6 +1,8 @@
 require 'mail'
+require 'resolv'
 
 class EmailValidator < ActiveModel::EachValidator
+
   def validate_each(record,attribute,value)
     begin
       m = Mail::Address.new(value)
@@ -18,6 +20,18 @@ class EmailValidator < ActiveModel::EachValidator
       r = false
     end
     record.errors[attribute] << (options[:message] || "is invalid") unless r
+    record.errors[attribute] << (options[:message] || "domain is invalid") unless self.validate_email_domain(value)
+  end
+
+  def validate_email_domain(email)
+      if email.nil? || (not email.include?('@') )
+        return false
+      end
+      domain = email.match(/\@(.+)/)[1]
+      Resolv::DNS.open do |dns|
+          @mx = dns.getresources(domain, Resolv::DNS::Resource::IN::MX)
+      end
+      @mx.size > 0 ? true : false
   end
 end
 
