@@ -32,11 +32,42 @@ describe User do
 
   it "should save the user with valid input" do
     user = User.new(valid_user_attributes({:username => 'adrianaTest'}))
+    user.password_confirmation = @user.password_confirmation
     user.save
     user.valid?.should be_true
     user2 = User.new(valid_user_attributes({:username => 'adrianaTest'}))
+    user2.password_confirmation = @user.password_confirmation
     user2.save
     user2.valid?.should be_false
+  end
+
+  it "should fail if the email has a wrong format" do
+    user = User.create(valid_user_attributes({:email => 'wrong_email.com'}))
+    user.valid?.should be_false
+  end
+
+  it "should fail if the password confirmation is different from the password" do
+    user = User.new(valid_user_attributes)
+    user.password_confirmation = "different_pass"
+    user.valid?.should be_false
+  end
+
+  it "should fail if the password contains the username" do
+    user = User.new(valid_user_attributes({:password => @user.name}))
+    user.password_confirmation = @user.name
+    user.valid?.should be_false
+  end
+
+  it "should fail if the password contains the username" do
+    user = User.new(valid_user_attributes({:password => @user.username}))
+    user.password_confirmation = @user.username
+    user.valid?.should be_false
+  end
+
+  it "should fail if the password contains the username" do
+    user = User.new(valid_user_attributes({:password => @user.email}))
+    user.password_confirmation = @user.email
+    user.valid?.should be_false
   end
 
   def valid_user_attributes(opts = {})
