@@ -14,3 +14,11 @@ Factory.define :baby do |b|
   b.gender "male"
   b.name "Sebastiao"
 end
+
+Factory.define :stat do |s|
+  s.user_id 1
+  s.baby_id 1
+  s.height 1.5
+  s.weight 15.0
+  s.age_weeks 2
+end

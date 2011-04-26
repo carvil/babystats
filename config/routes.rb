@@ -1,4 +1,6 @@
 Babystats::Application.routes.draw do
+  resources :stats
+
   resources :babies
 
   resources :users

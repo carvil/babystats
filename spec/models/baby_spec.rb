@@ -7,6 +7,11 @@ describe Baby do
     @baby = Factory.create(:baby)
   end
 
+  after(:each) do
+    User.delete_all
+    Baby.delete_all
+  end
+
   it "should save a baby when all attributes are given" do
     @baby.valid?.should be_true
   end

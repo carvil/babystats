@@ -6,8 +6,11 @@ describe User do
     @user = Factory.create(:user)
   end
 
+  after(:each) do
+    User.delete_all
+  end
+
   it "should save a user when all attributes are given" do
-    @user.save
     @user.valid?.should be_true
   end
 
