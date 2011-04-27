@@ -1,9 +1,10 @@
 Factory.define :user do |u|
   u.name "Adriana Santos"
   u.email "adrianasucena@gmail.com"
-  u.username "adriana"
-  u.password "mypass"
-  u.password_confirmation "mypass"
+  u.password "password"
+  u.password_confirmation "password"
+  u.password_hash "$2a$10$15ztvKQNUOutY/fp5zDC1eANR1eXufmCRp0zj2tnrszsQ3o8ZFEPG"
+  u.password_salt "$2a$10$15ztvKQNUOutY/fp5zDC1e"
   u.country "UK"
   u.city "London"
 end

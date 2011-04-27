@@ -6,12 +6,10 @@ gem 'rails', '3.0.5'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-
 gem 'rspec-rails'
-
 gem 'factory_girl'
-
 gem 'factory_girl_rails'
+gem 'bcrypt-ruby', :require => 'bcrypt'
 
 # Use unicorn as the web server
 # gem 'unicorn'
