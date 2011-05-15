@@ -20,7 +20,7 @@ class EmailValidator < ActiveModel::EachValidator
       r = false
     end
     record.errors[attribute] << (options[:message] || "is invalid") unless r
-    record.errors[attribute] << (options[:message] || "domain is invalid") unless self.validate_email_domain(value)
+    record.errors[attribute] << (options[:message] || "domain is invalid") unless (self.validate_email_domain(value) and !value.empty?)
   end
 
   def validate_email_domain(email)
