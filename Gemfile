@@ -5,11 +5,14 @@ gem 'rails', '3.0.5'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+gem 'mysql2', '0.2.7'
 gem 'rspec-rails'
 gem 'factory_girl'
 gem 'factory_girl_rails'
 gem 'bcrypt-ruby', :require => 'bcrypt'
+
+gem 'sass'
+gem "compass", ">= 0.11.5"
 
 # Use unicorn as the web server
 # gem 'unicorn'
