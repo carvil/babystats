@@ -74,6 +74,16 @@ describe User do
     @user.password_hash == BCrypt::Engine.hash_secret(@user.password, @user.password_salt)
   end
 
+  it "should authenticate" do
+    user = User.authenticate(@user.email, @user.password)
+    user.nil?.should be_false
+  end
+
+  it "should not authenticate" do
+    user = User.authenticate(@user.email, "some_other_password")
+    user.nil?.should be_true
+  end
+
   def valid_user_attributes(opts = {})
     valid_attributes = {
       :name => @user.name,
