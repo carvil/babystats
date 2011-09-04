@@ -3,9 +3,9 @@ require 'spec_helper'
 describe Stat do
 
   before(:each) do
-    @user = Factory.create(:user)
-    @baby = Factory.create(:baby)
-    @stat = Factory.create(:stat)
+    @user = FactoryGirl.create(:user)
+    @baby = FactoryGirl.create(:baby)
+    @stat = FactoryGirl.create(:stat)
   end
 
   after(:each) do

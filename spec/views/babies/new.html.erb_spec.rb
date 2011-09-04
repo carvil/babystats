@@ -14,8 +14,8 @@ describe "babies/new.html.erb" do
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form", :action => babies_path, :method => "post" do
-      assert_select "input#baby_user_id", :name => "baby[user_id]"
-      assert_select "input#baby_gender", :name => "baby[gender]"
+      #assert_select "input#baby_user_id", :name => "baby[user_id]"
+      #assert_select "input#baby_gender", :name => "baby[gender]"
       assert_select "input#baby_name", :name => "baby[name]"
     end
   end

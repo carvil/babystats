@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Baby do
 
   before(:each) do
-    @user = Factory.create(:user)
-    @baby = Factory.create(:baby)
+    @user = FactoryGirl.create(:user)
+    @baby = FactoryGirl.create(:baby)
   end
 
   after(:each) do

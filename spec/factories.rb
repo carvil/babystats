@@ -1,25 +1,29 @@
-Factory.define :user do |u|
-  u.name "Adriana Santos"
-  u.email "adrianasucena@gmail.com"
-  u.password "password"
-  u.password_confirmation "password"
-  u.password_hash "$2a$10$15ztvKQNUOutY/fp5zDC1eANR1eXufmCRp0zj2tnrszsQ3o8ZFEPG"
-  u.password_salt "$2a$10$15ztvKQNUOutY/fp5zDC1e"
-  u.country "UK"
-  u.city "London"
-end
+FactoryGirl.define do
 
-Factory.define :baby do |b|
-  b.user_id 1
-  b.birthday "2010-06-01"
-  b.gender "male"
-  b.name "Sebastiao"
-end
+  factory :user, :class => User do
+    name "Adriana Santos"
+    email "adrianasucena@gmail.com"
+    password "password"
+    password_confirmation "password"
+    password_hash "$2a$10$15ztvKQNUOutY/fp5zDC1eANR1eXufmCRp0zj2tnrszsQ3o8ZFEPG"
+    password_salt "$2a$10$15ztvKQNUOutY/fp5zDC1e"
+    country "UK"
+    city "London"
+  end
 
-Factory.define :stat do |s|
-  s.user_id 1
-  s.baby_id 1
-  s.height 1.5
-  s.weight 15.0
-  s.age_weeks 2
+  factory :baby, :class => Baby do
+    user_id 1
+    birthday "2010-06-01"
+    gender "male"
+    name "Sebastiao"
+  end
+
+  factory :stat, :class => Stat do
+    user_id 1
+    baby_id 1
+    height 1.5
+    weight 15.0
+    age_weeks 2
+  end
+
 end
