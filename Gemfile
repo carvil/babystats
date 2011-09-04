@@ -7,7 +7,6 @@ gem 'rails', '3.0.5'
 
 gem 'mysql2', '0.2.7'
 gem 'rspec-rails'
-gem 'factory_girl'
 gem 'factory_girl_rails'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 
