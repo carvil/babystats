@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110427100327) do
+ActiveRecord::Schema.define(:version => 20110918215014) do
 
   create_table "babies", :force => true do |t|
     t.integer  "user_id"
@@ -19,6 +19,27 @@ ActiveRecord::Schema.define(:version => 20110427100327) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "height_percentiles", :force => true do |t|
+    t.integer  "week"
+    t.float    "p1"
+    t.float    "p3"
+    t.float    "p5"
+    t.float    "p15"
+    t.float    "p25"
+    t.float    "p50"
+    t.float    "p75"
+    t.float    "p85"
+    t.float    "p95"
+    t.float    "p97"
+    t.float    "p99"
+    t.float    "standard_deviation"
+    t.float    "mean"
+    t.float    "sample_sd"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "gender"
   end
 
   create_table "stats", :force => true do |t|
