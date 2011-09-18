@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110918215014) do
+ActiveRecord::Schema.define(:version => 20110918224406) do
 
   create_table "babies", :force => true do |t|
     t.integer  "user_id"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20110918215014) do
   end
 
   create_table "height_percentiles", :force => true do |t|
-    t.integer  "week"
+    t.integer  "month"
     t.float    "p1"
     t.float    "p3"
     t.float    "p5"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20110918215014) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "gender"
+    t.float    "p999"
   end
 
   create_table "stats", :force => true do |t|
