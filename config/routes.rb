@@ -1,5 +1,7 @@
 Babystats::Application.routes.draw do
 
+  resources :weight_percentiles
+
   resources :height_percentiles
 
   get "log_out" => "sessions#destroy", :as => "log_out"

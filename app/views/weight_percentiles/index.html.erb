@@ -1,0 +1,61 @@
+<h1>Listing weight_percentiles</h1>
+
+<table>
+  <tr>
+    <th>Month</th>
+    <th>L</th>
+    <th>Mean</th>
+    <th>Sample sd</th>
+    <th>P01</th>
+    <th>P1</th>
+    <th>P3</th>
+    <th>P5</th>
+    <th>P10</th>
+    <th>P15</th>
+    <th>P25</th>
+    <th>P50</th>
+    <th>P75</th>
+    <th>P85</th>
+    <th>P90</th>
+    <th>P95</th>
+    <th>P97</th>
+    <th>P99</th>
+    <th>P999</th>
+    <th>Gender</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @weight_percentiles.each do |weight_percentile| %>
+  <tr>
+    <td><%= weight_percentile.month %></td>
+    <td><%= weight_percentile.l %></td>
+    <td><%= weight_percentile.mean %></td>
+    <td><%= weight_percentile.sample_sd %></td>
+    <td><%= weight_percentile.p01 %></td>
+    <td><%= weight_percentile.p1 %></td>
+    <td><%= weight_percentile.p3 %></td>
+    <td><%= weight_percentile.p5 %></td>
+    <td><%= weight_percentile.p10 %></td>
+    <td><%= weight_percentile.p15 %></td>
+    <td><%= weight_percentile.p25 %></td>
+    <td><%= weight_percentile.p50 %></td>
+    <td><%= weight_percentile.p75 %></td>
+    <td><%= weight_percentile.p85 %></td>
+    <td><%= weight_percentile.p90 %></td>
+    <td><%= weight_percentile.p95 %></td>
+    <td><%= weight_percentile.p97 %></td>
+    <td><%= weight_percentile.p99 %></td>
+    <td><%= weight_percentile.p999 %></td>
+    <td><%= weight_percentile.gender %></td>
+    <td><%= link_to 'Show', weight_percentile %></td>
+    <td><%= link_to 'Edit', edit_weight_percentile_path(weight_percentile) %></td>
+    <td><%= link_to 'Destroy', weight_percentile, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Weight percentile', new_weight_percentile_path %>
