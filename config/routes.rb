@@ -1,5 +1,7 @@
 Babystats::Application.routes.draw do
 
+  resources :body_mass_percentiles
+
   resources :weight_percentiles
 
   resources :height_percentiles
