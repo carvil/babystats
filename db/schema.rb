@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110919202545) do
+ActiveRecord::Schema.define(:version => 20110919222002) do
 
   create_table "babies", :force => true do |t|
     t.integer  "user_id"
@@ -65,6 +65,31 @@ ActiveRecord::Schema.define(:version => 20110919202545) do
     t.string   "country"
     t.string   "city"
     t.string   "password_salt"
+  end
+
+  create_table "weight_percentiles", :force => true do |t|
+    t.integer  "month"
+    t.float    "l"
+    t.float    "mean"
+    t.float    "sample_sd"
+    t.float    "p01"
+    t.float    "p1"
+    t.float    "p3"
+    t.float    "p5"
+    t.float    "p10"
+    t.float    "p15"
+    t.float    "p25"
+    t.float    "p50"
+    t.float    "p75"
+    t.float    "p85"
+    t.float    "p90"
+    t.float    "p95"
+    t.float    "p97"
+    t.float    "p99"
+    t.float    "p999"
+    t.string   "gender"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
