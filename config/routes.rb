@@ -1,5 +1,7 @@
 Babystats::Application.routes.draw do
 
+  devise_for :users
+
   resources :head_circumference_percentiles
 
   resources :body_mass_percentiles

@@ -13,7 +13,7 @@ gem 'jquery-rails'
 gem 'haml'
 gem "haml-rails"
 gem 'devise'
-gem 'mysql2', '0.2.7'
+gem 'mysql2'
 
 gem 'rspec-rails'
 gem 'factory_girl_rails'
