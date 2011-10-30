@@ -5,3 +5,11 @@ require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
 Babystats::Application.load_tasks
+
+test = Rake::Task['test']
+test.enhance { Rake::Task['spec'].invoke }
+
+task :build do
+  Rake::Task['assets:clean'].invoke
+  Rake::Task['assets:precompile'].invoke
+end
