@@ -20,4 +20,6 @@ Babystats::Application.routes.draw do
 
   root :to => "users#new"
 
+  root :to => "home#index"
+
 end

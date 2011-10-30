@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %title BabyStats
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+%body.bp
+    #container
+      #header
+        .logo_babystats
+          = link_to root_url do
+            = image_tag "rails.png"
+      #content
+        = yield
+      #footer
+        %p Copyright &copy; 2011 Carlos Vilhena
