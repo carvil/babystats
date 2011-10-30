@@ -1,22 +1,19 @@
-class DeviseCreateUsers < ActiveRecord::Migration
+class AddDeviseToUsers < ActiveRecord::Migration
   def self.up
-    create_table(:users) do |t|
+    change_table(:users) do |t|
       t.database_authenticatable :null => false
       t.recoverable
       t.rememberable
       t.trackable
-
+    
       # t.encryptable
       # t.confirmable
       # t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :both
       # t.token_authenticatable
 
-      t.string :name
-      t.string :email
-      t.string :country
-      t.string :city
 
-      t.timestamps
+      # Uncomment below if timestamps were not included in your original model.
+      # t.timestamps
     end
 
     add_index :users, :email,                :unique => true
@@ -27,6 +24,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :users
+    # By default, we don't want to make any assumption about how to roll back a migration when your
+    # model already existed. Please edit below which fields you would like to remove in this migration.
+    raise ActiveRecord::IrreversibleMigration   
   end
 end

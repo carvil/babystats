@@ -2,5 +2,9 @@
 
 FactoryGirl.define do
   factory :user do
+    name "Carlos"
+    email "my@email.com"
+    country "Portugal"
+    city "Porto"
   end
 end
