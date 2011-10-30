@@ -1,9 +1,6 @@
 Babystats::Application.routes.draw do
 
-  devise_for :users
-
-  resources :users
-
-  root :to => "users#new"
+  get "home/index"
+  root :to => "home#index"
 
 end

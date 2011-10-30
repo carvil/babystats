@@ -11,14 +11,18 @@ end
 
 gem 'jquery-rails'
 gem 'haml'
-gem "haml-rails"
 gem 'devise'
 gem 'mysql2'
+gem 'kaminari'
 
-gem 'rspec-rails'
-gem 'factory_girl_rails'
 
 group :development, :test do
+  gem 'capybara'
+  gem "haml-rails"
+  gem 'ruby_parser'
   gem "rspec-rails"
   gem "guard-rspec"
+  gem 'factory_girl_rails'
+  gem 'web-app-theme', '~> 0.8.0'
+  gem 'hpricot'
 end

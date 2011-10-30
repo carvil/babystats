@@ -2,16 +2,34 @@
 %html
   %head
     %title BabyStats
-    = stylesheet_link_tag    "application"
+    = stylesheet_link_tag 'web_app_theme'
     = javascript_include_tag "application"
-    = csrf_meta_tags
-%body.bp
+    = csrf_meta_tag
+  %body
     #container
       #header
-        .logo_babystats
-          = link_to root_url do
-            = image_tag "rails.png"
-      #content
-        = yield
-      #footer
-        %p Copyright &copy; 2011 Carlos Vilhena
+        %h1
+          %a{:href => "/"} BabyStats
+        #user-navigation
+          %ul.wat-cf
+            %li
+              %a{:href => "#"}= t("web-app-theme.profile", :default => "Profile")
+            %li
+              %a{:href => "#"}= t("web-app-theme.settings", :default => "Settings")
+            %li
+              %a.logout{:href => "/logout"}= t("web-app-theme.logout", :default => "Logout")
+        #main-navigation
+          %ul.wat-cf
+      #wrapper.wat-cf
+        .flash
+          - flash.each do |type, message|
+            %div{:class => "message #{type}"}
+              %p= message
+        #main
+          = yield
+          #footer
+            .block
+              %p
+                Copyright &copy; #{Time.now.year} BabyStats.
+        #sidebar
+          = yield :sidebar
