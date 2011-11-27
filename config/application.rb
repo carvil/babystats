@@ -9,7 +9,6 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-
 module Babystats
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -48,6 +47,10 @@ module Babystats
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-    
+
+    config.to_prepare do
+      Devise::SessionsController.layout "sign"
+      Devise::RegistrationsController.layout "sign"
+    end
   end
 end
