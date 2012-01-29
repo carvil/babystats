@@ -1,6 +1,0 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
-<% if current_user %>
-  <p><%= "Hi #{current_user.email}!!!" %></p>
-  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-<%end%>
