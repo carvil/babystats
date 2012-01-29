@@ -1,0 +1,30 @@
+<div class="topbar">
+  <div class="fill">
+    <div class="container">
+      <a class="brand" href="#">Babystats</a>
+      <ul class="nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <ul class="nav secondary-nav">
+        <% if user_signed_in? %>
+          <li class="dropdown" data-dropdown="dropdown" >
+            <a href="#" class="dropdown-toggle"><%= current_user.email %></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Settings", "/users/edit" %></li>
+              <li><%= link_to "Sign out", "/users/sign_out", :method => :delete %></li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+      <% unless user_signed_in? %>
+        <%= form_for(:user, as: "user", url: session_path("user"), html: {class: "pull-right"}) do |f| %>
+          <%= f.email_field :email, class: "input-small", placeholder: "Email" %>
+          <%= f.password_field :password, class: "input-small", placeholder: "Password" %>
+          <button class="btn" type="submit">Sign in</button>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
