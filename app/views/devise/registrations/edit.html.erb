@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="span8">
+  <div class="span6">
     <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
@@ -50,8 +50,8 @@
       </div>
 
       <div class="modal-footer">
-          <%= f.submit "Update", :class => "btn primary" %>
-        </div>
+        <%= f.submit "Update", :class => "btn primary" %>
+      </div>
     <% end %>
   </div>
 </div>
