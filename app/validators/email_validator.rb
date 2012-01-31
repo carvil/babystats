@@ -16,7 +16,7 @@ class EmailValidator < ActiveModel::EachValidator
       # We exclude valid email values like <user@localhost.com>
       # Hence we use m.__send__(tree).domain
       r &&= (t.domain.dot_atom_text.elements.size > 1)
-    rescue Exception => e   
+    rescue Exception => e
       r = false
     end
     record.errors[attribute] << (options[:message] || "is invalid") unless r
