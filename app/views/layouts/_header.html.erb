@@ -6,6 +6,15 @@
         <li class="active"><a href="#">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
+        <% if user_signed_in? %>
+          <li class="dropdown" data-dropdown="dropdown">
+            <a href="#" class="dropdown-toggle">My Babies</a>
+            <ul class="dropdown-menu">
+              <li><a href="/babies/new">Add baby</a></li>
+              <li><a href="/babies">List babies</a></li>
+            </ul>
+          </li>
+        <% end %>
       </ul>
       <ul class="nav secondary-nav">
         <% if user_signed_in? %>
