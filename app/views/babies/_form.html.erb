@@ -1,0 +1,41 @@
+<legend>Add baby</legend>
+<%= form_for(:baby, :as => "baby", :url => babies_path) do |f| %>
+
+  <div class="clearfix">
+    <%= f.label :name %>
+    <div class="input">
+      <%= f.text_field :name %>
+    </div>
+  </div>
+
+  <div class="clearfix">
+    <%= f.label :gender %>
+    <div class="input">
+      <ul class="inputs-list">
+        <li>
+          <label>
+            <%= f.radio_button :gender, "boy" %>
+            <span>Boy</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <%= f.radio_button :gender, "girl" %>
+            <span>Girl</span>
+          </label>
+        <li/>
+      </ul>
+    </div>
+  </div>
+
+  <div class="clearfix">
+    <%= f.label :date_of_birth %>
+    <div class="input">
+      <%= f.date_select :dob, {}, :class => "small" %>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <%= f.submit "Add baby", :class => "btn primary" %>
+  </div>
+<% end %>
