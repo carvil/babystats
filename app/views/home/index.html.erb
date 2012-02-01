@@ -8,7 +8,9 @@
         </div>
       </div>
       <div class="span5">
-        <%= render 'devise/registrations/form' %>
+        <% unless current_user %>
+          <%= render 'devise/registrations/form' %>
+        <% end %>
       </div>
     </div>
   </div>
