@@ -10,6 +10,16 @@ class BabiesController < ApplicationController
     @baby = Baby.find(params["id"])
   end
 
+  def edit
+    @baby = Baby.find(params["id"])
+  end
+
+  def update
+    @baby = Baby.find(params[:id])
+    @baby.update_attributes(params[:baby])
+    redirect_to babies_path
+  end
+
   def destroy
     Baby.find(params["id"]).delete
     redirect_to babies_path
