@@ -28,15 +28,14 @@ class BabiesController < ApplicationController
   def create
     baby_params = params["baby"]
     dob = Date.new(baby_params["dob(1i)"].to_i, baby_params["dob(2i)"].to_i, baby_params["dob(3i)"].to_i)
-    puts dob.inspect
     baby = Baby.new(name: baby_params["name"], gender: baby_params["gender"], dob: dob)
-    puts baby.inspect
     current_user.babies << baby
-    if current_user.save
+    if baby.valid?
+      current_user.babies << baby
       flash[:success] = "#{baby.name} added successfully"
       redirect_to baby_path(baby)
     else
-      flash[:error] = "Unable to create baby"
+      flash[:error] = baby.errors.full_messages
       render :action => "new"
     end
   end
