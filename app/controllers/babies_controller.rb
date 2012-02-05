@@ -10,6 +10,11 @@ class BabiesController < ApplicationController
     @baby = Baby.find(params["id"])
   end
 
+  def destroy
+    Baby.find(params["id"]).delete
+    redirect_to babies_path
+  end
+
   def create
     baby_params = params["baby"]
     dob = Date.new(baby_params["dob(1i)"].to_i, baby_params["dob(2i)"].to_i, baby_params["dob(3i)"].to_i)
