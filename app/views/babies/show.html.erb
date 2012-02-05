@@ -1,2 +1,12 @@
-<h2>From show</h2><br/>
-<p><%= @baby.inspect %></p>
+<div class="row">
+  <div class="span-one-third">
+    <h2><%= @baby.name %></h2>
+    <p>Gender: <%= @baby.gender %></p>
+    <p>Date of birth: <%= @baby.dob %></p>
+    <div class="actions">
+      <%= link_to "Edit", edit_baby_path(@baby), :class => "btn primary" %>
+      <%= link_to "Delete", baby_path(@baby), :method => :delete, :confirm => "are you sure?", :class => "btn" %>
+    </div>
+    <%= link_to "Back", :back %>
+  </div>
+</div>
