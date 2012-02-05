@@ -1,5 +1,4 @@
-<legend>Add baby</legend>
-<%= form_for(:baby, :as => "baby", :url => babies_path) do |f| %>
+<%= form_for(@baby, :as => "baby", :url => baby_path(@baby) ) do |f| %>
 
   <div class="clearfix">
     <%= f.label :name %>
@@ -36,6 +35,6 @@
   </div>
 
   <div class="modal-footer">
-    <%= f.submit "Add baby", :class => "btn primary" %>
+    <%= f.submit "Save", :disable_with => 'Saving...', :class => "btn primary" %>
   </div>
 <% end %>
