@@ -2,6 +2,8 @@
   <div class="span2">
     <% if @baby.photo.exists? then %>
       <%= image_tag @baby.photo.url(:small) %>
+    <% else %>
+      <%= image_tag "/assets/default_baby.jpg" %>
     <% end %>
   </div>
   <div class="span5">
