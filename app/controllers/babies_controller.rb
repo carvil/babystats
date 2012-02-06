@@ -28,7 +28,7 @@ class BabiesController < ApplicationController
   def create
     baby_params = params["baby"]
     dob = Date.new(baby_params["dob(1i)"].to_i, baby_params["dob(2i)"].to_i, baby_params["dob(3i)"].to_i)
-    baby = Baby.new(name: baby_params["name"], gender: baby_params["gender"], dob: dob)
+    baby = Baby.new(baby_params.merge(dob: dob))
     current_user.babies << baby
     if baby.valid?
       current_user.babies << baby
