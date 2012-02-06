@@ -1,10 +1,7 @@
 class AddPhotoToBabies < ActiveRecord::Migration
   def change
-    add_column :babies, :photo_file_name, :string
-
-    add_column :babies, :photo_content_type, :string
-
-    add_column :babies, :photo_file_size, :integer
-
+    change_table :babies do |t|
+      t.has_attached_file :photo
+    end
   end
 end
