@@ -7,7 +7,7 @@ gem 'rails', '3.2.1'
 
 gem 'sqlite3'
 gem 'devise'
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
 # Gems used only for assets and not required

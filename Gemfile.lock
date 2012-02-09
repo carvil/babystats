@@ -8,6 +8,15 @@ GIT
       cocaine (>= 0.0.2)
       mime-types
 
+GIT
+  remote: http://github.com/seyhunak/twitter-bootstrap-rails.git
+  revision: fa5a816e4cc72b102fa525edaf0e6100ab021b15
+  specs:
+    twitter-bootstrap-rails (2.0.2)
+      actionpack (>= 3.1)
+      less-rails (~> 2.1.5)
+      railties (>= 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -75,7 +84,7 @@ GEM
     less (2.0.9)
       commonjs (~> 0.2.0)
       therubyracer (~> 0.9.9)
-    less-rails (2.1.3)
+    less-rails (2.1.5)
       actionpack (>= 3.1)
       less (~> 2.0.7)
     libv8 (3.3.10.4)
@@ -142,10 +151,6 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
-    twitter-bootstrap-rails (2.0)
-      actionpack (>= 3.2.1)
-      less-rails (~> 2.1.2)
-      railties (>= 3.2.1)
     tzinfo (0.3.31)
     uglifier (1.2.2)
       execjs (>= 0.3.0)
@@ -166,5 +171,5 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 3.2.3)
   sqlite3
-  twitter-bootstrap-rails
+  twitter-bootstrap-rails!
   uglifier (>= 1.0.3)
