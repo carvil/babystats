@@ -1,42 +1,46 @@
-<legend>Sign up</legend>
-<%= form_for(:user, :as => "user", :url => registration_path("user")) do |f| %>
+<div class="row">
+  <div class="span6">
+    <legend>Sign up</legend>
+    <%= form_for(:user, :as => "user", :url => registration_path("user")) do |f| %>
 
-  <div class="clearfix">
-    <%= f.label :first_name %>
-    <div class="input">
-      <%= f.text_field :first_name %>
-    </div>
-  </div>
+      <div class="clearfix">
+        <%= f.label :first_name %>
+        <div class="input">
+          <%= f.text_field :first_name %>
+        </div>
+      </div>
 
-  <div class="clearfix">
-    <%= f.label :last_name %>
-    <div class="input">
-      <%= f.text_field :last_name %>
-    </div>
-  </div>
+      <div class="clearfix">
+        <%= f.label :last_name %>
+        <div class="input">
+          <%= f.text_field :last_name %>
+        </div>
+      </div>
 
-  <div class="clearfix">
-    <%= f.label :email %>
-    <div class="input">
-      <%= f.email_field :email %>
-    </div>
-  </div>
+      <div class="clearfix">
+        <%= f.label :email %>
+        <div class="input">
+          <%= f.email_field :email %>
+        </div>
+      </div>
 
-  <div class="clearfix">
-    <%= f.label :password %>
-    <div class="input">
-      <%= f.password_field :password %>
-    </div>
-  </div>
+      <div class="clearfix">
+        <%= f.label :password %>
+        <div class="input">
+          <%= f.password_field :password %>
+        </div>
+      </div>
 
-  <div class="clearfix">
-    <%= f.label :password_confirmation %>
-    <div class="input">
-      <%= f.password_field :password_confirmation %>
-    </div>
-  </div>
+      <div class="clearfix">
+        <%= f.label :password_confirmation %>
+        <div class="input">
+          <%= f.password_field :password_confirmation %>
+        </div>
+      </div>
 
-  <div class="modal-footer">
-    <%= f.submit "Sign up", :class => "btn primary" %>
+      <div class="modal-footer">
+        <%= f.submit "Sign up", :class => "btn primary" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
