@@ -33,10 +33,12 @@ class BabiesController < ApplicationController
     if baby.valid?
       current_user.babies << baby
       flash[:success] = "#{baby.name} added successfully"
+      flash.now[:success] = "#{baby.name} added successfully"
       redirect_to baby_path(baby)
     else
       flash[:error] = baby.errors.full_messages
       render :action => "new"
+      flash.now[:error] = baby.errors.full_messages
     end
   end
 end
