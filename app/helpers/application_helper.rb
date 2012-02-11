@@ -14,4 +14,8 @@ module ApplicationHelper
       messages.collect {|message| concat(content_tag(:li, message.to_s)) }
     end
   end
+
+  def display_error_messages!
+    build_message_div "error", resource.errors.full_messages
+  end
 end
