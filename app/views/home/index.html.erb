@@ -1,12 +1,17 @@
 <% unless current_user %>
+
   <header class="jumbotron masthead">
     <div class="inner">
       <h1>Welcome to BabyStats</h1>
       <p>An awesome tool to track your baby's progress</p>
+      <p class="download-info">
+        <%= link_to "Learn More", "#", :class => "btn btn-primary btn-large" %>
+      </p>
     </div>
   </header>
+
   <div class="row">
-    <div class="span7">
+    <div class="span8">
       <div class="carousel" id="myCarousel">
         <div class="carousel-inner">
           <div class="item active">
@@ -25,9 +30,22 @@
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
         <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
       </div>
+      <%= javascript_tag "$('.carousel').carousel()" %>
     </div>
-    <div class="span5">
-      <%= render 'devise/registrations/form' %>
+    <div class="span4">
+      <%= form_for(:user, :as => "user", :url => registration_path("user"), :html => {:class => "well"}) do |f| %>
+        <legend>Sign up now</legend>
+        <%= f.label :email %>
+        <%= f.email_field :email, {:class => "input"} %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password, {:class => "input"} %>
+
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, {:class => "input"} %>
+
+        <%= f.submit "Sign up", :class => "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
 <% else %>
