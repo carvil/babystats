@@ -1,10 +1,10 @@
 <div class="row">
   <% flash.each do |key, message| %>
-    <div class="span16">
+    <div class="span12">
       <% if key == :error and message.is_a?(Array) %>
         <%= build_message_div(key, message) %>
       <% else %>
-        <div class="alert-message <%= key %>" data-alert><a class="close" href="#">×</a><p><%= message %></p></div>
+        <div class="alert alert-<%= key %>"><a class="close" href="#">×</a><p><%= message %></p></div>
       <% end %>
     </div>
   <% end %>
