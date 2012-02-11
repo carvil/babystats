@@ -3,6 +3,7 @@
     <legend>Sign in</legend>
 
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <%= display_error_messages! %>
 
       <div class="clearfix">
         <%= f.label :email %>
