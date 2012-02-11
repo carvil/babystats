@@ -1,24 +1,28 @@
-<h1>Your babies</h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th class="header">Name</th>
-      <th class="header">Gender</th>
-      <th class="header">Date of Birth</th>
-      <th class="header">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @babies.each do |baby| %>
-      <tr>
-        <th><%= link_to baby.name, baby_path(baby) %></th>
-        <th><%= baby.gender %></th>
-        <th><%= baby.dob %></th>
-        <th>
-          <%= link_to "Edit", edit_baby_path(baby) %>
-          <%= link_to "Delete", baby_path(baby),:confirm => "Are you sure?", :method => :delete %>
-        </th>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+  <div class="span12">
+    <legend>Your babies</legend>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="header">Name</th>
+          <th class="header">Gender</th>
+          <th class="header">Date of Birth</th>
+          <th class="header">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @babies.each do |baby| %>
+          <tr>
+            <th><%= link_to baby.name, baby_path(baby) %></th>
+            <th><%= baby.gender %></th>
+            <th><%= baby.dob %></th>
+            <th>
+              <%= link_to "Edit", edit_baby_path(baby) %>
+              <%= link_to "Delete", baby_path(baby),:confirm => "Are you sure?", :method => :delete %>
+            </th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
