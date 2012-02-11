@@ -6,14 +6,14 @@
       <%= image_tag "/assets/default_baby.jpg" %>
     <% end %>
   </div>
-  <div class="span4">
+  <div class="span6">
     <h2><%= @baby.name %></h2>
     <p>Gender: <%= @baby.gender %></p>
     <p>Date of birth: <%= @baby.dob %></p>
-    <div class="modal-footer">
+    <div class="actions">
       <%= link_to "Delete", baby_path(@baby), :method => :delete, :confirm => "are you sure?", :class => "btn" %>
       <%= link_to "All", babies_path, :class => "btn"%>
-      <%= link_to "Edit", edit_baby_path(@baby), :class => "btn primary" %>
+      <%= link_to "Edit", edit_baby_path(@baby), :class => "btn btn-primary" %>
     </div>
   </div>
 </div>
