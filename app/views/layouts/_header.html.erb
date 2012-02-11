@@ -4,8 +4,8 @@
       <a class="brand" href="#">Babystats</a>
       <ul class="nav">
         <li class="active"><a href="#">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
         <% if user_signed_in? %>
           <li class="dropdown" data-dropdown="dropdown">
             <a href="#" class="dropdown-toggle">My Babies</a>
@@ -29,7 +29,7 @@
       </ul>
       <% unless user_signed_in? %>
         <%= form_for(:user, as: "user", url: user_session_path, html: {class: "pull-right"}) do |f| %>
-          <%= f.email_field :email, class: "input-small", placeholder: "Email" %>
+          <%= f.email_field :email, class: "input-large", placeholder: "Email" %>
           <%= f.password_field :password, class: "input-small", placeholder: "Password" %>
           <button class="btn" type="submit">Sign in</button>
         <% end %>

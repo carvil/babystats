@@ -1,17 +1,13 @@
 <div class="row">
-  <div class="span12">
-    <div class="row">
-      <div class="span7">
-        <div class="hero-unit">
-          <p><h2>Welcome to BabyStats!<h2/></p>
-          <p>An awesome tool to track your babies! Vestibulum id ligula porta felis euismod semper. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-        </div>
-      </div>
-      <div class="span5">
-        <% unless current_user %>
-          <%= render 'devise/registrations/form' %>
-        <% end %>
-      </div>
+  <div class="span7">
+    <div class="hero-unit">
+      <p><h2>Welcome to BabyStats!<h2/></p>
+      <p>An awesome tool to track your babies! Vestibulum id ligula porta felis euismod semper. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
     </div>
+  </div>
+  <div class="span5">
+    <% unless current_user %>
+      <%= render 'devise/registrations/form' %>
+    <% end %>
   </div>
 </div>

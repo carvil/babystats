@@ -1,47 +1,49 @@
 <%= form_for(@baby, :as => "baby", :url => baby_path(@baby), :html => { :multipart => true } ) do |f| %>
 
-  <div class="clearfix">
-    <%= f.label :name %>
-    <div class="input">
-      <%= f.text_field :name %>
+  <fieldset>
+    <div class="clearfix">
+      <%= f.label :name %>
+      <div class="input">
+        <%= f.text_field :name %>
+      </div>
     </div>
-  </div>
 
-  <div class="clearfix">
-    <%= f.label :gender %>
-    <div class="input">
-      <ul class="inputs-list">
-        <li>
-          <label>
-            <%= f.radio_button :gender, "boy" %>
-            <span>Boy</span>
-          </label>
-        </li>
-        <li>
-          <label>
-            <%= f.radio_button :gender, "girl" %>
-            <span>Girl</span>
-          </label>
-        <li/>
-      </ul>
+    <div class="clearfix">
+      <%= f.label :gender %>
+      <div class="input">
+        <ul class="inputs-list">
+          <li>
+            <label>
+              <%= f.radio_button :gender, "boy" %>
+              <span>Boy</span>
+            </label>
+          </li>
+          <li>
+            <label>
+              <%= f.radio_button :gender, "girl" %>
+              <span>Girl</span>
+            </label>
+          <li/>
+        </ul>
+      </div>
     </div>
-  </div>
 
-  <div class="clearfix">
-    <%= f.label :date_of_birth %>
-    <div class="input">
-      <%= f.date_select :dob, {}, :class => "small" %>
+    <div class="clearfix">
+      <%= f.label :date_of_birth %>
+      <div class="input">
+        <%= f.date_select :dob, {}, :class => "small" %>
+      </div>
     </div>
-  </div>
 
-  <div class="clearfix">
-    <%= f.label :photo %>
-    <div class="input">
-      <%= f.file_field :photo %>
+    <div class="clearfix">
+      <%= f.label :photo %>
+      <div class="input">
+        <%= f.file_field :photo %>
+      </div>
     </div>
-  </div>
 
-  <div class="modal-footer">
-    <%= f.submit "Save", :disable_with => 'Saving...', :class => "btn primary" %>
-  </div>
+    <div class="modal-footer">
+      <%= f.submit "Save", :disable_with => 'Saving...', :class => "btn primary" %>
+    </div>
+  </fieldset>
 <% end %>
