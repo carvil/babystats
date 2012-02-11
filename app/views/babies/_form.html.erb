@@ -1,49 +1,44 @@
-<%= form_for(@baby, :as => "baby", :url => baby_path(@baby), :html => { :multipart => true } ) do |f| %>
+<%= form_for(@baby, :as => "baby", :url => baby_path(@baby), :html => { :multipart => true, :class => "form-horizontal" } ) do |f| %>
 
   <fieldset>
-    <div class="clearfix">
-      <%= f.label :name %>
-      <div class="input">
-        <%= f.text_field :name %>
+    <div class="control-group">
+      <%= f.label :name, {:class => "control-label"} %>
+      <div class="controls">
+        <%= f.text_field :name, {:class => "input-xlarge"} %>
       </div>
     </div>
 
-    <div class="clearfix">
-      <%= f.label :gender %>
-      <div class="input">
-        <ul class="inputs-list">
-          <li>
-            <label>
-              <%= f.radio_button :gender, "boy" %>
-              <span>Boy</span>
-            </label>
-          </li>
-          <li>
-            <label>
-              <%= f.radio_button :gender, "girl" %>
-              <span>Girl</span>
-            </label>
-          <li/>
-        </ul>
+    <div class="control-group">
+      <%= f.label :gender, {:class => "control-label"} %>
+      <div class="controls">
+        <label>
+          <%= f.radio_button :gender, "boy" %>
+          <span>Boy</span>
+        </label>
+        <label>
+          <%= f.radio_button :gender, "girl" %>
+          <span>Girl</span>
+        </label>
       </div>
     </div>
 
-    <div class="clearfix">
-      <%= f.label :date_of_birth %>
-      <div class="input">
-        <%= f.date_select :dob, {}, :class => "small" %>
+    <div class="control-group">
+      <%= f.label :date_of_birth, {:class => "control-label"} %>
+      <div class="controls">
+        <%= f.date_select :dob, {:use_short_month => true}, :class => "span1" %>
       </div>
     </div>
 
-    <div class="clearfix">
-      <%= f.label :photo %>
-      <div class="input">
+    <div class="control-group">
+      <%= f.label :photo, {:class => "control-label"} %>
+      <div class="controls">
         <%= f.file_field :photo %>
       </div>
     </div>
 
-    <div class="modal-footer">
-      <%= f.submit "Save", :disable_with => 'Saving...', :class => "btn primary" %>
+    <div class="form-actions">
+      <%= f.submit "Save", :disable_with => 'Saving...', :class => "btn btn-primary" %>
+      <%= link_to "Cancel", babies_path, :class => "btn"%>
     </div>
   </fieldset>
 <% end %>
