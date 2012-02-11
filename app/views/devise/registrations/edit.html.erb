@@ -1,60 +1,56 @@
-<div class="row">
-  <div class="span6">
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-      <%= devise_error_messages! %>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= display_error_messages! %>
 
-      <div class="clearfix">
-        <%= f.label :first_name %>
-        <div class="input">
-          <%= f.text_field :first_name, :class => "xlarge" %>
-        </div>
-      </div>
-
-      <div class="clearfix">
-        <%= f.label :last_name %>
-        <div class="input">
-          <%= f.text_field :last_name, :class => "xlarge" %>
-        </div>
-      </div>
-
-      <div class="clearfix">
-        <%= f.label :email %>
-        <div class="input">
-          <%= f.email_field :email, :class => "xlarge" %>
-        </div>
-      </div>
-
-      <div class="clearfix">
-        <%= f.label :password %>
-        <div class="input">
-          <%= f.password_field :password, :class => "xlarge", :placeholder => "leave blank if you don't want to change it" %>
-        </div>
-      </div>
-
-      <div class="clearfix">
-        <%= f.label :password_confirmation %>
-        <div class="input">
-          <%= f.password_field :password_confirmation, :class => "xlarge" %>
-        </div>
-      </div>
-
-      <div class="clearfix">
-        <%= f.label :current_password %>
-        <div class="input">
-          <%= f.password_field :current_password,
-                  :class => "xlarge",
-                  :placeholder => "needed to confirm your changes" %>
-        </div>
-      </div>
-
-      <div class="modal-footer">
-        <%= f.submit "Update", :class => "btn primary" %>
-      </div>
-    <% end %>
+  <div class="clearfix">
+    <%= f.label :first_name %>
+    <div class="input">
+      <%= f.text_field :first_name, :class => "xlarge" %>
+    </div>
   </div>
-</div>
+
+  <div class="clearfix">
+    <%= f.label :last_name %>
+    <div class="input">
+      <%= f.text_field :last_name, :class => "xlarge" %>
+    </div>
+  </div>
+
+  <div class="clearfix">
+    <%= f.label :email %>
+    <div class="input">
+      <%= f.email_field :email, :class => "xlarge" %>
+    </div>
+  </div>
+
+  <div class="clearfix">
+    <%= f.label :password %>
+    <div class="input">
+      <%= f.password_field :password, :class => "xlarge", :placeholder => "leave blank if you don't want to change it" %>
+    </div>
+  </div>
+
+  <div class="clearfix">
+    <%= f.label :password_confirmation %>
+    <div class="input">
+      <%= f.password_field :password_confirmation, :class => "xlarge" %>
+    </div>
+  </div>
+
+  <div class="clearfix">
+    <%= f.label :current_password %>
+    <div class="input">
+      <%= f.password_field :current_password,
+              :class => "xlarge",
+              :placeholder => "needed to confirm your changes" %>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <%= f.submit "Update", :class => "btn primary" %>
+  </div>
+<% end %>
 
 <h3>Cancel my account</h3>
 
