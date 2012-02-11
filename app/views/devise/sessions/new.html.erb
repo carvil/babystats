@@ -4,33 +4,35 @@
 
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
       <%= display_error_messages! %>
+      <fieldset>
 
-      <div class="clearfix">
-        <%= f.label :email %>
-        <div class="input">
-          <%= f.email_field :email %>
-        </div>
-      </div>
-
-      <div class="clearfix">
-        <%= f.label :password %>
-        <div class="input">
-          <%= f.password_field :password %>
-        </div>
-      </div>
-
-      <% if devise_mapping.rememberable? -%>
-        <div class="clearfix">
-          <%= f.label :remember_me %>
-          <div class="input">
-            <%= f.check_box :remember_me %>
+        <div class="control-group">
+          <%= f.label :email, :class => "control-label" %>
+          <div class="controls">
+            <%= f.email_field :email, :class => "input-xlarge" %>
           </div>
         </div>
-      <% end -%>
 
-      <div class="modal-footer">
-        <%= f.submit "Sign in", :class => "btn primary" %>
-      </div>
+        <div class="control-group">
+          <%= f.label :password, :class => "control-label" %>
+          <div class="controls">
+            <%= f.password_field :password, :class => "input-xlarge" %>
+          </div>
+        </div>
+
+        <% if devise_mapping.rememberable? -%>
+          <div class="control-group">
+            <%= f.label :remember_me, :class => "control-label" %>
+            <div class="controls">
+              <%= f.check_box :remember_me %>
+            </div>
+          </div>
+        <% end -%>
+
+        <div class="form-actions">
+          <%= f.submit "Sign in", :class => "btn btn-primary" %>
+        </div>
+      </fieldset>
 
     <% end %>
 
