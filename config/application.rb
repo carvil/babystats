@@ -56,6 +56,13 @@ module Babystats
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
+    # Disable action view error divs
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| "#{html_tag}".html_safe }
+
+    # Make Rspec default
+    config.generators do |g|
+      g.test_framework :rspec
+      g.integration_tool :rspec
+    end
   end
 end
