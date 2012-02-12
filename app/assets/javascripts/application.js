@@ -15,4 +15,5 @@
 //= require bootstrap-carousel
 //= require bootstrap-alert
 //= require bootstrap
+//= require scrollTo
 //= require_tree .
