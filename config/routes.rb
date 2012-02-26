@@ -1,7 +1,8 @@
 Babystats::Application.routes.draw do
 
-  resources :babies
-  resources :stats
+  resources :babies do
+    resources :stats
+  end
 
   devise_for :users
 
