@@ -15,11 +15,11 @@ class BabiesController < ApplicationController
   end
 
   def show
-    @baby = Baby.find(params["id"])
+    @baby = Baby.find(params[:id])
   end
 
   def edit
-    @baby = Baby.find(params["id"])
+    @baby = Baby.find(params[:id])
   end
 
   def update
@@ -29,12 +29,12 @@ class BabiesController < ApplicationController
   end
 
   def destroy
-    Baby.find(params["id"]).delete
+    Baby.find(params[:id]).delete
     redirect_to babies_path
   end
 
   def create
-    baby_params = params["baby"]
+    baby_params = params[:baby]
     dob = Date.new(baby_params["dob(1i)"].to_i, baby_params["dob(2i)"].to_i, baby_params["dob(3i)"].to_i)
     @baby = Baby.new(baby_params.merge(dob: dob))
     current_user.babies << baby
