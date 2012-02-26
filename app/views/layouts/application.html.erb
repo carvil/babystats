@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Babystats</title>
-  <%= stylesheet_link_tag "application" %>
-<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js",
-                           "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Babystats</title>
+    <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js",
+                             "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
     <%= render 'layouts/header' %>
 
     <%= render 'layouts/main_content' %>
+
+    <hr>
 
     <%= render 'layouts/footer' %>
 
