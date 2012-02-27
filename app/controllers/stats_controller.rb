@@ -9,5 +9,6 @@ class StatsController < ApplicationController
   end
 
   def new
+    @stat = Stat.new
   end
 end
