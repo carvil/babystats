@@ -11,9 +11,10 @@
     <p>Gender: <%= @baby.gender %></p>
     <p>Date of birth: <%= @baby.dob %></p>
     <div class="actions">
-      <%= link_to "Delete", baby_path(@baby), :method => :delete, :confirm => "are you sure?", :class => "btn" %>
-      <%= link_to "All", babies_path, :class => "btn"%>
-      <%= link_to "Edit", edit_baby_path(@baby), :class => "btn btn-primary" %>
+      <%= link_to "Manage data", new_baby_stat_path(@baby), :class => "btn btn-primary" %>
+      <%= link_to "Edit", edit_baby_path(@baby), :class => "btn" %>
+      <%= link_to "List All", babies_path, :class => "btn"%>
+      <%= link_to "Delete", baby_path(@baby), :method => :delete, :confirm => "are you sure?", :class => "btn btn-danger" %>
     </div>
   </div>
 </div>
@@ -22,7 +23,7 @@
 
 <div class="marketing">
   <h1>Stats</h1>
-  <p class="marketing-byline">Your baby progress</p>
+  <p class="marketing-byline">Your baby progress (http://www.who.int/childgrowth/standards/en/)</p>
 </div>
 
 <div class="row">
