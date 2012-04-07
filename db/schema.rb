@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120407161639) do
+ActiveRecord::Schema.define(:version => 20120407164408) do
 
   create_table "babies", :force => true do |t|
     t.string   "name"
@@ -30,6 +30,33 @@ ActiveRecord::Schema.define(:version => 20120407161639) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "percentiles", :force => true do |t|
+    t.integer  "day"
+    t.integer  "percentile_indicator_id"
+    t.float    "power_l"
+    t.float    "mean_m"
+    t.float    "variation_s"
+    t.float    "percentile_01"
+    t.float    "percentile_1"
+    t.float    "percentile_3"
+    t.float    "percentile_5"
+    t.float    "percentile_10"
+    t.float    "percentile_15"
+    t.float    "percentile_25"
+    t.float    "percentile_50"
+    t.float    "percentile_75"
+    t.float    "percentile_85"
+    t.float    "percentile_90"
+    t.float    "percentile_95"
+    t.float    "percentile_97"
+    t.float    "percentile_99"
+    t.float    "percentile_999"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+    t.string   "gender"
+    t.string   "measure_unit"
   end
 
   create_table "stats", :force => true do |t|
