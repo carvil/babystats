@@ -1,7 +1,9 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+puts "Adding Percentile Indicators"
+
+indicators = [ "height-for-age", "weight-for-age",
+  "weight-for-length", "weight-for-height",
+  "body-mass-index-for-age", "head-circumference-for-age",
+  "arm-circumference-for-age", "subscapular-skinfold-for-age",
+  "triceps-skinfold-for-age"]
+
+indicators.each {|i| PercentileIndicator.create(name: i)}
