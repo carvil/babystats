@@ -35,7 +35,17 @@
     </div>
     <div id="height-for-age" class="accordion-body collapse">
       <div class="accordion-inner">
-        The graph
+        <script type="text/javascript" charset="utf-8">
+
+          build_graph({
+            render_to_div: "height-for-age-graph",
+            title: "Height for age",
+            subtitle: "Birth to 5 years (percentiles)",
+            yaxis_title: "height (cm)",
+            data: eval(<%= Percentile.generate_graph_data(@baby).to_json.html_safe %>)
+          });
+        </script>
+        <div id="height-for-age-graph" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
       </div>
     </div>
   </div>
