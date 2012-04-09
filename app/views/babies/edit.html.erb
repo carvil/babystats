@@ -1,6 +1,7 @@
-<h1>Editing baby</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @baby %> |
-<%= link_to 'Back', babies_path %>
+<div class="row">
+  <div class="span6">
+    <legend>Edit baby</legend>
+    <%= render 'babies/form' %>
+    <%= link_to "Back", :back %>
+  </div>
+</div>

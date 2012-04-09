@@ -2,55 +2,35 @@ require 'spec_helper'
 
 describe Baby do
 
-  before(:each) do
-    @user = FactoryGirl.create(:user)
-    @baby = FactoryGirl.create(:baby)
-  end
+  let(:user) {
+    FactoryGirl.create(:user)
+  }
 
-  after(:each) do
-    User.delete_all
-    Baby.delete_all
-  end
+  let(:baby) {
+    FactoryGirl.build(:baby)
+  }
 
-  it "should save a baby when all attributes are given" do
-    @baby.valid?.should be_true
-  end
-
-  [:user_id, :name, :gender, :birthday].each do |field|
-    it "should not save a baby if #{field.to_s} is missing" do
-      baby = Baby.new(valid_baby_attributes.reject{|key,value| key == field})
-      baby.valid?.should_not be_true
+  context "given a valid set of attributes" do
+    it "should create the baby" do
+      user.babies << baby
+      baby.valid?.should be_true
+      baby.save.should be_true
     end
   end
 
-  [:user_id, :name, :birthday].each do |field|
-    it "should not save a baby if #{field.to_s} is null" do
-      baby = Baby.new(valid_baby_attributes({field => nil}))
-      baby.valid?.should_not be_true
+  context "given invalid attributes" do
+    it "should not create the baby" do
+      another_baby = Baby.new
+      user.babies << another_baby
+      another_baby.valid?.should be_false
+      another_baby.save.should be_false
     end
   end
 
-  it "should not save a baby with a wrong gender" do
-    baby = Baby.new(valid_baby_attributes({ :gender => "whathever" }))
-    baby.valid?.should be_false
+  context "given no user" do
+    it "should not create the Baby" do
+      baby.valid?.should be_false
+      baby.save.should be_false
+    end
   end
-
-  it "should save two babies connected to the same user" do
-    baby1 = Baby.new(valid_baby_attributes)
-    baby2 = Baby.new(valid_baby_attributes)
-    baby1.save
-    baby2.save
-    baby2.valid?.should be_true
-  end
-
-  def valid_baby_attributes(opts = {})
-    valid_attributes = {
-      :user_id => @user.id,
-      :gender => "male",
-      :name => "Sebastiao",
-      :birthday => "2010-06-01"
-    }.merge(opts)
-    return valid_attributes
-  end
-
 end

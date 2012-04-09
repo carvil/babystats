@@ -1,0 +1,76 @@
+<% unless current_user %>
+
+  <header class="jumbotron masthead">
+    <div class="inner">
+      <h1>Welcome to BabyStats</h1>
+      <p>An awesome tool to track your baby's progress</p>
+      <p class="download-info">
+        <%= link_to "Learn More", "javascript:$.scrollTo($('div[id=\"learn-more\"]')[0],800)",
+          :class => "btn btn-primary btn-large" %>
+      </p>
+    </div>
+  </header>
+
+  <div class="row">
+    <div class="span8">
+      <div class="carousel" id="myCarousel">
+        <div class="carousel-inner">
+          <div class="item active">
+            <%= image_tag "/assets/baby.jpg", :size => "300x500" %>
+            <div class="carousel-caption">
+              <p>Welcome to BabyStats!<p/>
+            </div>
+          </div>
+          <div class="item">
+            <%= image_tag "/assets/baby2.jpg", :size => "500x500" %>
+            <div class="carousel-caption">
+              <p>An awesome tool to track your babies!</p>
+            </div>
+          </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+      </div>
+      <%= javascript_tag "$('.carousel').carousel()" %>
+    </div>
+    <div class="span4">
+      <%= form_for(:user, :as => "user", :url => registration_path("user"), :html => {:class => "well"}) do |f| %>
+        <legend>Sign up now</legend>
+        <%= f.label :email %>
+        <%= f.email_field :email, {:class => "input"} %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password, {:class => "input"} %>
+
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, {:class => "input"} %>
+
+        <%= f.submit "Sign up", :class => "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row" id="learn-more">
+    <div class="span4">
+      <h2>Heading</h2>
+       <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+      <p><a class="btn" href="#">View details &raquo;</a></p>
+    </div>
+    <div class="span4">
+      <h2>Heading</h2>
+       <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+      <p><a class="btn" href="#">View details &raquo;</a></p>
+   </div>
+    <div class="span4">
+      <h2>Heading</h2>
+      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      <p><a class="btn" href="#">View details &raquo;</a></p>
+    </div>
+  </div>
+
+
+<% else %>
+  <p>Decide what to show here</p>
+<% end %>

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,138 +11,81 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110919223923) do
+ActiveRecord::Schema.define(:version => 20120409160857) do
 
   create_table "babies", :force => true do |t|
-    t.integer  "user_id"
-    t.date     "birthday"
-    t.string   "gender"
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.date     "dob"
+    t.string   "gender"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "user_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
-  create_table "body_mass_percentiles", :force => true do |t|
+  create_table "percentile_indicators", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "percentiles", :force => true do |t|
     t.integer  "month"
-    t.float    "l"
-    t.float    "mean"
-    t.float    "sample_sd"
-    t.float    "p01"
-    t.float    "p1"
-    t.float    "p3"
-    t.float    "p5"
-    t.float    "p10"
-    t.float    "p15"
-    t.float    "p25"
-    t.float    "p50"
-    t.float    "p75"
-    t.float    "p85"
-    t.float    "p90"
-    t.float    "p95"
-    t.float    "p97"
-    t.float    "p99"
-    t.float    "p999"
+    t.integer  "percentile_indicator_id"
+    t.float    "power_l"
+    t.float    "mean_m"
+    t.float    "variation_s"
+    t.float    "percentile_01"
+    t.float    "percentile_1"
+    t.float    "percentile_3"
+    t.float    "percentile_5"
+    t.float    "percentile_10"
+    t.float    "percentile_15"
+    t.float    "percentile_25"
+    t.float    "percentile_50"
+    t.float    "percentile_75"
+    t.float    "percentile_85"
+    t.float    "percentile_90"
+    t.float    "percentile_95"
+    t.float    "percentile_97"
+    t.float    "percentile_99"
+    t.float    "percentile_999"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
     t.string   "gender"
     t.string   "measure_unit"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "head_circumference_percentiles", :force => true do |t|
-    t.integer  "month"
-    t.float    "mean"
-    t.float    "sample_sd"
-    t.float    "standard_deviation"
-    t.float    "p01"
-    t.float    "p1"
-    t.float    "p3"
-    t.float    "p5"
-    t.float    "p10"
-    t.float    "p15"
-    t.float    "p25"
-    t.float    "p50"
-    t.float    "p75"
-    t.float    "p85"
-    t.float    "p90"
-    t.float    "p95"
-    t.float    "p97"
-    t.float    "p99"
-    t.float    "p999"
-    t.string   "gender"
-    t.string   "measure_unit"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "height_percentiles", :force => true do |t|
-    t.integer  "month"
-    t.float    "p1"
-    t.float    "p3"
-    t.float    "p5"
-    t.float    "p15"
-    t.float    "p25"
-    t.float    "p50"
-    t.float    "p75"
-    t.float    "p85"
-    t.float    "p95"
-    t.float    "p97"
-    t.float    "p99"
-    t.float    "standard_deviation"
-    t.float    "mean"
-    t.float    "sample_sd"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "gender"
-    t.float    "p999"
-    t.float    "p01"
-    t.float    "p10"
-    t.float    "p90"
+    t.float    "standard_deviation_sd"
   end
 
   create_table "stats", :force => true do |t|
-    t.integer  "user_id"
     t.integer  "baby_id"
-    t.float    "height"
-    t.float    "weight"
-    t.integer  "age_weeks"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.float    "height_in_meters"
+    t.integer  "age_months"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "users", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "email"
-    t.string   "password_hash"
-    t.string   "country"
-    t.string   "city"
-    t.string   "password_salt"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
 
-  create_table "weight_percentiles", :force => true do |t|
-    t.integer  "month"
-    t.float    "l"
-    t.float    "mean"
-    t.float    "sample_sd"
-    t.float    "p01"
-    t.float    "p1"
-    t.float    "p3"
-    t.float    "p5"
-    t.float    "p10"
-    t.float    "p15"
-    t.float    "p25"
-    t.float    "p50"
-    t.float    "p75"
-    t.float    "p85"
-    t.float    "p90"
-    t.float    "p95"
-    t.float    "p97"
-    t.float    "p99"
-    t.float    "p999"
-    t.string   "gender"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end
