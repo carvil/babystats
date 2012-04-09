@@ -2,6 +2,9 @@
   <div class="span6">
     <legend>Edit baby</legend>
     <%= render 'babies/form' %>
-    <%= link_to "Back", :back %>
+    <ul class="quick-links">
+      <li><%= link_to "Back", :back %></li>
+      <li><%= link_to "Delete #{@baby.name} from records", baby_path(@baby), :method => :delete, :confirm => "are you sure?" %></li>
+    </ul>
   </div>
 </div>

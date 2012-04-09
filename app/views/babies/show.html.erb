@@ -13,8 +13,6 @@
     <div class="actions">
       <%= link_to "Manage data", new_baby_stat_path(@baby), :class => "btn btn-primary" %>
       <%= link_to "Edit", edit_baby_path(@baby), :class => "btn" %>
-      <%= link_to "List All", babies_path, :class => "btn"%>
-      <%= link_to "Delete", baby_path(@baby), :method => :delete, :confirm => "are you sure?", :class => "btn btn-danger" %>
     </div>
   </div>
 </div>
@@ -33,10 +31,9 @@
         Height for age
       </a>
     </div>
-    <div id="height-for-age" class="accordion-body collapse">
+    <div id="height-for-age" class="accordion-body in">
       <div class="accordion-inner">
         <script type="text/javascript" charset="utf-8">
-
           build_graph({
             render_to_div: "height-for-age-graph",
             title: "Height for age",
