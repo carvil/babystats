@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Babystats::Application.config.secret_token = 'c015bcc583b835d38cd1c0fc530c73548ac3331192f57f316841b198317eccd04417ced1a0609614f6838114d1ad7b0495a386158502643cc4a4f3277a853012'
+Babystats::Application.config.secret_token = 'bdab104189507380a5bedc8cdfa8c25b9a841a717ad1aa88aaf827691f8f3d56daa62956569cd9dbf5f47175b50e0d1010d4fb31b7eedb68d69642add767ba3d'

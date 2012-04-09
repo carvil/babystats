@@ -1,25 +1,52 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="span2">
+    <% if @baby.photo.exists? then %>
+      <%= image_tag @baby.photo.url(:small) %>
+    <% else %>
+      <%= image_tag "/assets/default_baby.jpg" %>
+    <% end %>
+  </div>
+  <div class="span6">
+    <h2><%= @baby.name %></h2>
+    <p>Gender: <%= @baby.gender %></p>
+    <p>Date of birth: <%= @baby.dob %></p>
+    <div class="actions">
+      <%= link_to "Manage data", new_baby_stat_path(@baby), :class => "btn btn-primary" %>
+      <%= link_to "Edit", edit_baby_path(@baby), :class => "btn" %>
+      <%= link_to "List All", babies_path, :class => "btn"%>
+      <%= link_to "Delete", baby_path(@baby), :method => :delete, :confirm => "are you sure?", :class => "btn btn-danger" %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <b>User:</b>
-  <%= @baby.user_id %>
-</p>
+<hr class="soften">
 
-<p>
-  <b>Birthday:</b>
-  <%= @baby.birthday %>
-</p>
+<div class="marketing">
+  <h1>Stats</h1>
+  <p class="marketing-byline">Your baby progress (http://www.who.int/childgrowth/standards/en/)</p>
+</div>
 
-<p>
-  <b>Gender:</b>
-  <%= @baby.gender %>
-</p>
+<div class="accordion" id="accordion2">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#height-for-age" style="text-align: center;">
+        Height for age
+      </a>
+    </div>
+    <div id="height-for-age" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <script type="text/javascript" charset="utf-8">
 
-<p>
-  <b>Name:</b>
-  <%= @baby.name %>
-</p>
-
-
-<%= link_to 'Edit', edit_baby_path(@baby) %> |
-<%= link_to 'Back', babies_path %>
+          build_graph({
+            render_to_div: "height-for-age-graph",
+            title: "Height for age",
+            subtitle: "Birth to 5 years (percentiles)",
+            yaxis_title: "height (cm)",
+            data: eval(<%= Percentile.generate_graph_data(@baby).to_json.html_safe %>)
+          });
+        </script>
+        <div id="height-for-age-graph" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+      </div>
+    </div>
+  </div>
+</div>

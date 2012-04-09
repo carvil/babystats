@@ -1,28 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <%= stylesheet_link_tag 'screen.css', :media => 'screen, projection' %>
-  <%= stylesheet_link_tag 'print.css', :media => 'print' %>
-  <!--[if lt IE 8]><%= stylesheet_link_tag 'ie.css', :media => 'screen, projection' %><![endif]-->   
-  <title>Babystats</title>
-</head>
-<body>
+    <title>Babystats</title>
+    <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js",
+                             "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-  <div id="user_nav">
-    <% if current_user %>
-      Logged in as <%= current_user.email %>
-      <%= link_to "Log out", log_out_path %>
-    <% else %>
-      <%= link_to "Sign up", sign_up_path %>
-      <%= link_to "Log in", log_in_path %>
-    <% end %>
-  </div>
+    <%= render 'layouts/header' %>
 
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, :id => "flash_#{name}" %>
-  <%end%>
+    <%= render 'layouts/main_content' %>
 
-  <%= yield %>
+    <hr>
 
-</body>
+    <%= render 'layouts/footer' %>
+
+  </body>
 </html>
