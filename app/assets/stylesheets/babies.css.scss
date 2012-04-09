@@ -1,3 +1,23 @@
 // Place all the styles related to the babies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.bs-links {
+  margin: 36px 0; }
+
+.quick-links {
+  min-height: 30px;
+  margin: 0;
+  padding: 5px 20px;
+  list-style: none;
+  text-align: center;
+  overflow: hidden;
+  &:first-child {
+    min-height: 0; }
+  li {
+    display: inline;
+    margin: 0 5px;
+    color: #999; }
+  .github-btn, .tweet-btn, .follow-btn {
+    position: relative;
+    top: 5px; } }
