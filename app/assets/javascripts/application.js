@@ -16,4 +16,5 @@
 //= require bootstrap-alert
 //= require bootstrap
 //= require scrollTo
+//= require highcharts
 //= require_tree .
